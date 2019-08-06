@@ -1,5 +1,8 @@
-module.exports = {
+import NuxtConfiguration from '@nuxt/config'
+
+export default {
   mode: 'universal',
+  srcDir: 'src/',
   /*
    ** Headers of the page
    */
@@ -55,8 +58,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    watch: [
-      '~/.nuxt/**'
-    ]
+    watch: ['~/.nuxt/**']
   }
-}
+} as NuxtConfiguration
