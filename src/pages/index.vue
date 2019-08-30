@@ -2,6 +2,7 @@
   <div class="container">
     <div>
       <logo />
+      <NuxtLink to="/about">About page</NuxtLink>
       <h1 class="title">nuxt-koa-antd !!!!</h1>
       <h2 class="subtitle">My scrumtrulescent Nuxt.js project</h2>
       <div class="links">
@@ -16,8 +17,15 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  asyncData(context) {
+    return { project: 'nuxt' }
+  },
   components: {
     Logo
+  },
+  meta: {
+    title: 'index',
+    hideInMenu: true
   }
 }
 </script>

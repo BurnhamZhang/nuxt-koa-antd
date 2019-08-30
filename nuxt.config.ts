@@ -26,11 +26,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['ant-design-vue/dist/antd.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css'
+  ],
   /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: ['@/plugins/antd-ui'],
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+    '@/plugins/element-ui'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -44,7 +48,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    ['@nuxtjs/pwa', { icon: false }],
   ],
   /*
    ** Axios module configuration
@@ -55,9 +59,13 @@ export default {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
+    transpile: [/^element-ui/],
     watch: ['~/.nuxt/**']
+  },
+  router:{
+    extendRoutes(routes){
+
+      console.warn('routes',routes)
+    }
   }
 } as NuxtConfiguration
